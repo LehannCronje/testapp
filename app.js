@@ -4,10 +4,26 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var mysql = require('mysql');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+//database connection
+var connection = mysql.createConnection({
+    host : 'localhost',
+    user : 'root',
+    password :'',
+    database: 'nodelogin'
+  });
+connection.connect(function(err){
+    if(err){
+        return console.error('error: ' + err.message);
+    }
+    console.log('connected to the database');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
