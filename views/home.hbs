@@ -1,0 +1,80 @@
+<div class="side-dash-wrapper">
+    <div class="side-dash">
+        <div class="side-dash-header">
+            <h1>Dashboard</h1>
+            <hr>
+        </div>
+        <div class="side-dash-body">
+            <ul>
+                <li>Dashboard</li>
+                <li>Icons</li>
+                <li>Maps</li>
+                <li>Notifications</li>
+            </ul>
+        </div>    
+    </div>
+</div>
+<div class="main-board">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="top-graph col-12 graph">
+                <div>
+                    <h2>Top graph</h2>
+                    <hr>
+                    <canvas id="canvas"></canvas>
+                    <button id="randomizeData">Randomize Data</button>
+	                <button id="addDataset">Add Dataset</button>
+	                <button id="removeDataset">Remove Dataset</button>
+	                <button id="addData">Add Data</button>
+	                <button id="removeData">Remove Data</button>
+                </div>
+            </div>
+            <div class="middle-graph graph-left col-4 graph">
+                <h2>Middle left</h2>
+                <hr>
+                <canvas id="canvas1"></canvas>
+                <button id="randomizeData1">Randomize Data</button>
+                <button id="addDataset1">Add Dataset</button>
+                <button id="removeDataset1">Remove Dataset</button>
+                <button id="addData1">Add Data</button>
+                <button id="removeData1">Remove Data</button>
+            </div>
+            <div class="middle-graph graph-center col-4 graph">
+                <h2>Middle centre</h2>
+                <hr>
+                <canvas id="canvas2"></canvas>
+                <button id="randomizeData2">Randomize Data</button>
+	            <button id="addDataset2">Add Dataset</button>
+	            <button id="removeDataset2">Remove Dataset</button>
+                <button id="addData2">Add Data</button>
+                <button id="removeData2">Remove Data</button>
+                <button id="changeCircleSize2">Semi/Full Circle</button>
+            </div>
+            <div class="middle-graph graph-right col-4 graph">
+                <h2>Middle right</h2>
+                <hr>
+                <canvas id="chart-area"></canvas>
+                <button id="randomizeData3">Randomize Data</button>
+                <button id="addDataset3">Add Dataset</button>
+                <button id="removeDataset3">Remove Dataset</button>
+                
+            </div>
+            <div class="bottom-graph graph-right col-6 graph">
+                <h2>bottom graph left</h2>
+                <hr>
+                <canvas id="chart-1"></canvas>
+                <button onclick="randomize(this)">Randomize</button>
+                <button onclick="addDataset(this)">Add Dataset</button>
+                <button onclick="removeDataset(this)">Remove Dataset</button>
+            </div>
+            <div class="bottom-graph graph-left col-6 graph">
+                <h2>bottom graph right</h2>
+                <hr>
+                <canvas id="chart-0"></canvas>
+                <button onclick="randomize(this)">Randomize</button>
+                <button onclick="addDataset(this)">Add Dataset</button>
+                <button onclick="removeDataset(this)">Remove Dataset</button>
+            </div>
+        </div>
+    </div>
+</div>
