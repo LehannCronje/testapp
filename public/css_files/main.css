@@ -21,7 +21,8 @@ html, body {
       width: 100%;
       padding: 10px;
       margin: 10px 0px;
-      border-radius: 5px;
+      border-radius: 5px; }
+    .login-container .login-wrapper input[type=submit] {
       background-color: rgba(46, 115, 245, 0.5);
       color: white;
       font-weight: 600; }
