@@ -4,6 +4,24 @@ html, body{
     
     width:100%;
 }
+.login-container{
+    height:100vh;
+    text-align: center;
+    .login-wrapper{
+        padding:50px;
+        background-color: white;
+        border-radius:5px;
+        .form-wrapper{
+            width:400px;
+        }
+        input{
+            width:100%;
+            padding:10px;
+            margin:10px 0px;
+            border-radius:5px;
+        }
+    }
+}
 nav{
     background-color:transparent;
     margin:0px;
@@ -32,7 +50,7 @@ nav{
     }
 }
 .side-dash-wrapper{
-    width:15%;
+    width:17%;
     position: fixed;
     height:100vh;
     background-image: linear-gradient(to bottom right, white, rgba(46, 115, 245, 0.3));
@@ -72,8 +90,8 @@ nav{
     z-index: 999;
 }
 .main-board{
-    width: 85%;
-    margin-left:15%;
+    width: 83%;
+    margin-left:17%;
     display: inline-block;
     background-color:white;
     .top-graph{
