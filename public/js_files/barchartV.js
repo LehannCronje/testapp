@@ -102,6 +102,7 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
                 type: 'bar',
                 data: barChartData,
                 options: {
+                    maintainAspectRatio: false,
                     responsive: true,
                     legend: {
                         position: 'top',

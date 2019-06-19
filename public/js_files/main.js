@@ -1,10 +1,9 @@
 window.onload = function() {
-    
-    loadLineChart();
     loadBarChart();
+    loadLineChart();
     loadDonutChart();
     loadPieChart();
-    loadScatterChart();
+    // loadScatterChart();
 };
 
 

@@ -58,7 +58,8 @@ var MONTHS1 = ['January', 'February', 'March', 'April', 'May', 'June', 'July', '
 				}]
 			},
 			options: {
-				responsive: true,
+                responsive: true,
+                maintainAspectRatio: false,
 				title: {
 					display: true,
 					text: 'Chart.js Line Chart - Stacked Area'
@@ -121,13 +122,13 @@ var MONTHS1 = ['January', 'February', 'March', 'April', 'May', 'June', 'July', '
 
 		document.getElementById('addData1').addEventListener('click', function() {
 			if (config2.data.datasets.length > 0) {
-				var month = MONTHS1[config.data.labels.length % MONTHS1.length];
+				var month = MONTHS1[config2.data.labels.length % MONTHS1.length];
 				config2.data.labels.push(month);
 
 				config2.data.datasets.forEach(function(dataset) {
 					dataset.data.push(randomScalingFactor());
 				});
-
+                console.log(month);
 				window.myLine.update();
 			}
 		});

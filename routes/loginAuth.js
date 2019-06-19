@@ -29,19 +29,14 @@ router.post('/', function(req,res){
         if(rows.length > 0){
           req.session.loggedin = true;
           req.session.username = username;
-          connection.end();
-          console.log('connection ended');
+          console.log(req.session.username);
           res.redirect('/home')
         }else {
-            connection.end();
-            console.log('connection ended');
           res.send('Incorrect Username and/or Password!');
         }
         res.end();
       });
     }else{
-        connection.end();
-    console.log('connection ended');
       res.send('Please enter Username and Password!');
       res.end();
     }
