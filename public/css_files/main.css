@@ -1,7 +1,11 @@
 html, body {
   padding: 0;
   margin: 0;
-  width: 100%; }
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, right top, left bottom, from(white), to(#337ab7));
+  background-image: -o-linear-gradient(top right, white, #337ab7);
+  background-image: linear-gradient(to bottom left, white, #337ab7); }
 
 .login-container {
   height: 100vh;
@@ -10,9 +14,9 @@ html, body {
     padding: 50px;
     background-color: white;
     border-radius: 5px;
-    background-image: -webkit-gradient(linear, left top, right bottom, from(white), to(rgba(46, 115, 245, 0.3)));
-    background-image: -o-linear-gradient(top left, white, rgba(46, 115, 245, 0.3));
-    background-image: linear-gradient(to bottom right, white, rgba(46, 115, 245, 0.3));
+    background-image: -webkit-gradient(linear, left top, right bottom, from(white), to(#337ab7));
+    background-image: -o-linear-gradient(top left, white, #337ab7);
+    background-image: linear-gradient(to bottom right, white, #337ab7);
     -webkit-box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2), 0 2px 30px 0 rgba(0, 0, 0, 0.35);
             box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2), 0 2px 30px 0 rgba(0, 0, 0, 0.35); }
     .login-container .login-wrapper h1 {
@@ -25,7 +29,7 @@ html, body {
       margin: 10px 0px;
       border-radius: 5px; }
     .login-container .login-wrapper input[type=submit] {
-      background-color: rgba(46, 115, 245, 0.5);
+      background-color: #337ab7;
       color: white;
       font-weight: 600;
       border: none;
@@ -53,13 +57,14 @@ nav {
         -ms-flex-align: center;
             align-items: center; }
     nav div h2 {
-      margin-right: 30%; }
+      margin-right: 30%;
+      text-transform: uppercase; }
     nav div a {
       margin-left: 30%;
       color: white;
-      font-weight: 600;
+      font-weight: 400;
       padding: 10px;
-      background-color: rgba(46, 115, 245, 0.5);
+      background-color: #337ab7;
       text-decoration: none;
       text-transform: uppercase;
       border-radius: 5px; }
@@ -67,10 +72,8 @@ nav {
 .side-dash-wrapper {
   width: 17%;
   position: fixed;
+  background-color: aliceblue;
   height: 100vh;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(white), to(rgba(46, 115, 245, 0.3)));
-  background-image: -o-linear-gradient(top left, white, rgba(46, 115, 245, 0.3));
-  background-image: linear-gradient(to bottom right, white, rgba(46, 115, 245, 0.3));
   -webkit-box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2), 0 2px 30px 0 rgba(0, 0, 0, 0.35);
           box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2), 0 2px 30px 0 rgba(0, 0, 0, 0.35);
   -webkit-transition: 0.5s;
@@ -103,29 +106,36 @@ nav {
         font-size: 24px; }
         .side-dash-wrapper .side-dash-body ul li a {
           display: block;
-          color: white;
-          font-weight: 600;
+          color: black;
+          font-weight: 400;
           padding: 10px;
-          background-color: rgba(46, 115, 245, 0.5);
+          text-align: center;
+          border-bottom: solid 1px #337ab7;
           text-decoration: none;
           text-transform: uppercase;
-          border-radius: 5px;
           width: 100%; }
+        .side-dash-wrapper .side-dash-body ul li a:hover {
+          background-color: #337ab7;
+          color: white;
+          border-radius: 5px;
+          -webkit-transition: .5s;
+          -o-transition: .5s;
+          transition: .5s; }
 
 .main-board {
   width: 83%;
   margin-left: 17%;
-  display: inline-block;
-  background-color: white; }
+  display: inline-block; }
   .main-board .top-graph {
-    margin-top: 100px; }
+    margin-top: 100px;
+    height: 100%; }
     .main-board .top-graph canvas {
-      height: 500px !important; }
+      height: 250px !important; }
   .main-board .bottom-graph canvas {
     height: 500px !important; }
 
 button {
-  background-color: rgba(46, 115, 245, 0.5);
+  background-color: #337ab7;
   text-transform: uppercase;
   font-weight: 600;
   color: white;
@@ -145,16 +155,15 @@ button:hover {
 
 .graph {
   margin: 20px 0px 20px 0px;
-  padding-left: 40px; }
+  padding-left: 40px;
+  padding-right: 40px; }
   .graph h2 {
     text-align: center;
     text-transform: uppercase;
     color: grey; }
   .graph div {
-    background-image: -webkit-gradient(linear, right top, left bottom, from(white), to(rgba(46, 115, 245, 0.3)));
-    background-image: -o-linear-gradient(top right, white, rgba(46, 115, 245, 0.3));
-    background-image: linear-gradient(to bottom left, white, rgba(46, 115, 245, 0.3));
-    padding: 40px;
+    padding: 20px;
+    background-color: aliceblue;
     border-radius: 10px;
     -webkit-box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.35);
             box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.35); }

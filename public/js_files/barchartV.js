@@ -1,15 +1,15 @@
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		var color = Chart.helpers.color;
 		var barChartData = {
-			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
 			datasets: [{
-				label: 'Dataset 1',
+				label: 'Imports',
 				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.red,
 				borderWidth: 1,
 				data: [
-					randomScalingFactor(),
-					randomScalingFactor(),
+					20,
+					10,
 					randomScalingFactor(),
 					randomScalingFactor(),
 					randomScalingFactor(),
@@ -17,13 +17,13 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 					randomScalingFactor()
 				]
 			}, {
-				label: 'Dataset 2',
+				label: 'Exports',
 				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.blue,
 				borderWidth: 1,
 				data: [
-					randomScalingFactor(),
-					randomScalingFactor(),
+					10,
+					20,
 					randomScalingFactor(),
 					randomScalingFactor(),
 					randomScalingFactor(),
@@ -105,7 +105,10 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
                     maintainAspectRatio: false,
                     responsive: true,
                     legend: {
-                        position: 'top',
+						position: 'bottom',
+						labels: {
+							
+						},
                     },
                     title: {
                         display: true,
