@@ -259,9 +259,11 @@ function toggleType(type){
 	if(type=='import'){
 		document.getElementById(type).classList.remove('active');
 		document.getElementById('export').classList.add('active');
+		window.myBar.options.title.text = 'Company Imports';
 	}else{
 		document.getElementById(type).classList.remove('active');
 		document.getElementById('import').classList.add('active');
+		window.myBar.options.title.text = 'Company Exports';
 	}
 	window.myBar.update();
 }
@@ -352,7 +354,7 @@ function toggleType(type){
                     },
                     title: {
                         display: true,
-                        text: 'Chart.js Bar Chart'
+                        text: 'Company Imports'
                     }
                 }
             });
