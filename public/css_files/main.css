@@ -54,10 +54,10 @@ nav {
         -ms-flex-align: center;
             align-items: center; }
     nav div h2 {
-      margin-right: 30%;
+      margin-right: 25%;
       text-transform: uppercase; }
     nav div a {
-      margin-left: 30%;
+      margin-left: 25%;
       color: white;
       font-weight: 400;
       padding: 10px;
