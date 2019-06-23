@@ -12,11 +12,8 @@ html, body {
   text-align: center; }
   .login-container .login-wrapper {
     padding: 50px;
-    background-color: white;
+    background-color: aliceblue;
     border-radius: 5px;
-    background-image: -webkit-gradient(linear, left top, right bottom, from(white), to(#337ab7));
-    background-image: -o-linear-gradient(top left, white, #337ab7);
-    background-image: linear-gradient(to bottom right, white, #337ab7);
     -webkit-box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2), 0 2px 30px 0 rgba(0, 0, 0, 0.35);
             box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2), 0 2px 30px 0 rgba(0, 0, 0, 0.35); }
     .login-container .login-wrapper h1 {
