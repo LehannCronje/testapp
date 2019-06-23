@@ -259,11 +259,11 @@ function toggleType(type){
 	if(type=='import'){
 		document.getElementById(type).classList.remove('active');
 		document.getElementById('export').classList.add('active');
-		window.myBar.options.title.text = 'Company Imports';
+		window.myBar.options.title.text = 'Subaru Imports';
 	}else{
 		document.getElementById(type).classList.remove('active');
 		document.getElementById('import').classList.add('active');
-		window.myBar.options.title.text = 'Company Exports';
+		window.myBar.options.title.text = 'Subaru Exports';
 	}
 	window.myBar.update();
 }
@@ -354,8 +354,26 @@ function toggleType(type){
                     },
                     title: {
                         display: true,
-                        text: 'Company Imports'
-                    }
+						text: 'Subaru Imports',
+						fontSize: 18
+					},
+					scales:{
+						yAxes:[{
+							ticks: {
+								callback: function(label, index, labels) {
+									if(label<10){
+										return label;
+									}else{
+										return label/1000000+'M';
+									}
+								}
+							},
+							scaleLabel: {
+								display: true,
+								labelString: '1m = 1 000 000'
+							}
+						}]
+					}
                 }
             });
         }

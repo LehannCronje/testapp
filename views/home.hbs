@@ -1,13 +1,13 @@
 <nav>
     <div>
-        <h2>Dashboard</h2>
+        <h2>Datasmart analytics</h2>
         <a href="/logout">Logout</a>
     </div>
 </nav>
 <div class="side-dash-wrapper">
     <div class="side-dash">
         <div class="side-dash-header">
-            <h3>Company</h3>
+            <h3>Subaru</h3>
             <hr>
         </div>
         <div class="side-dash-body">
@@ -39,7 +39,28 @@
                         <option value="import">import</option>
                         <option value="export">export</option>
                     </select> --}}
-                    <div class="years">
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            Years
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button id='2015' value='2015' onclick="hideData(this.value)">2015</button>
+                            <button id='2016' value='2016' onclick="hideData(this.value)">2016</button>
+                            <button id='2017' value='2017' onclick="hideData(this.value)">2017</button>
+                            <button id='2018' value='2018' onclick="hideData(this.value)">2018</button>
+                            <button id='2019' value='2019' onclick="hideData(this.value)">2019</button>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            Types
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button id='import' value='import' onclick="toggleType(this.value)">import</button>
+                            <button id='export' value='export' onclick="toggleType(this.value)">export</button>
+                        </div>
+                    </div>
+                    {{!-- <div class="years">
                         <button id='2015' value='2015' onclick="hideData(this.value)">2015</button>
                         <button id='2016' value='2016' onclick="hideData(this.value)">2016</button>
                         <button id='2017' value='2017' onclick="hideData(this.value)">2017</button>
@@ -49,7 +70,7 @@
                     <div class="types">
                         <button id='import' value='import' onclick="toggleType(this.value)">import</button>
                         <button id='export' value='export' onclick="toggleType(this.value)">export</button>
-                    </div>
+                    </div> --}}
                     {{!-- <p id="demo"></p>
                     <button id="randomizeData">Randomize Data</button>
 	                <button id="addDataset">Add Dataset</button>
