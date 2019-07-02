@@ -1,7 +1,7 @@
 window.onload = function() {
     loadBarChart();
     // loadLineChart();
-    // loadDonutChart();
+    loadDonutChart();
     // loadPieChart();
     // loadScatterChart();
 };

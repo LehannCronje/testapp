@@ -37,20 +37,7 @@
         <div class="row">
             <div class="top-graph col-12 graph">
                 <div class="graph-container">
-                    {{!-- <h2>Top graph</h2>
-                    <hr> --}}
                     <canvas id="canvas"></canvas>
-                    {{!-- <select id="mySelect" onchange="myFunction()">
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                    </select>
-                    <select id="mySelect1" onchange="myFunction()">
-                        <option value="import">import</option>
-                        <option value="export">export</option>
-                    </select> --}}
                     <div class="dropdown">
                         <button class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
                             Years
@@ -72,23 +59,32 @@
                             <button id='export' value='export' onclick="toggleType(this.value)">export</button>
                         </div>
                     </div>
-                    {{!-- <div class="years">
-                        <button id='2015' value='2015' onclick="hideData(this.value)">2015</button>
-                        <button id='2016' value='2016' onclick="hideData(this.value)">2016</button>
-                        <button id='2017' value='2017' onclick="hideData(this.value)">2017</button>
-                        <button id='2018' value='2018' onclick="hideData(this.value)">2018</button>
-                        <button id='2019' value='2019' onclick="hideData(this.value)">2019</button>
+                </div>
+            </div>
+            <div class="top-graph col-4 graph">
+                <div class="graph-container">
+                    <canvas id="canvas2"></canvas>
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            Years
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button id='2015' value='2015' onclick="hideData(this.value)">2015</button>
+                            <button id='2016' value='2016' onclick="hideData(this.value)">2016</button>
+                            <button id='2017' value='2017' onclick="hideData(this.value)">2017</button>
+                            <button id='2018' value='2018' onclick="hideData(this.value)">2018</button>
+                            <button id='2019' value='2019' onclick="hideData(this.value)">2019</button>
+                        </div>
                     </div>
-                    <div class="types">
-                        <button id='import' value='import' onclick="toggleType(this.value)">import</button>
-                        <button id='export' value='export' onclick="toggleType(this.value)">export</button>
-                    </div> --}}
-                    {{!-- <p id="demo"></p>
-                    <button id="randomizeData">Randomize Data</button>
-	                <button id="addDataset">Add Dataset</button>
-	                <button id="removeDataset">Remove Dataset</button>
-	                <button id="addData">Add Data</button>
-	                <button id="removeData">Remove Data</button> --}}
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            Types
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button id='import' value='import' onclick="toggleType(this.value)">import</button>
+                            <button id='export' value='export' onclick="toggleType(this.value)">export</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             {{!-- <div class="middle-graph graph-center col-6 graph">

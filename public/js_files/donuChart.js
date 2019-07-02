@@ -1,50 +1,50 @@
-// var randomScalingFactor = function() {
-//     return Math.round(Math.random() * 100);
-// };
+var randomScalingFactor = function() {
+    return Math.round(Math.random() * 100);
+};
 
-// var config1 = {
-//     type: 'doughnut',
-//     data: {
-//         datasets: [{
-//             data: [
-//                 randomScalingFactor(),
-//                 randomScalingFactor(),
-//                 randomScalingFactor(),
-//                 randomScalingFactor(),
-//                 randomScalingFactor(),
-//             ],
-//             backgroundColor: [
-//                 window.chartColors.red,
-//                 window.chartColors.orange,
-//                 window.chartColors.yellow,
-//                 window.chartColors.green,
-//                 window.chartColors.blue,
-//             ],
-//             label: 'Dataset 1'
-//         }],
-//         labels: [
-//             'Red',
-//             'Orange',
-//             'Yellow',
-//             'Green',
-//             'Blue'
-//         ]
-//     },
-//     options: {
-//         responsive: true,
-//         legend: {
-//             position: 'top',
-//         },
-//         title: {
-//             display: true,
-//             text: 'Chart.js Doughnut Chart'
-//         },
-//         animation: {
-//             animateScale: true,
-//             animateRotate: true
-//         }
-//     }
-// };
+var config1 = {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+            ],
+            backgroundColor: [
+                window.chartColors.red,
+                window.chartColors.orange,
+                window.chartColors.yellow,
+                window.chartColors.green,
+                window.chartColors.blue,
+            ],
+            label: 'Dataset 1'
+        }],
+        labels: [
+            'Red',
+            'Orange',
+            'Yellow',
+            'Green',
+            'Blue'
+        ]
+    },
+    options: {
+        responsive: true,
+        legend: {
+            position: 'top',
+        },
+        title: {
+            display: true,
+            text: 'Chart.js Doughnut Chart'
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
+        }
+    }
+};
 
 
 // document.getElementById('randomizeData2').addEventListener('click', function() {
@@ -121,7 +121,7 @@
 //     window.myDoughnut.update();
 // });
 
-// function loadDonutChart(){
-//     var ctx = document.getElementById('canvas2').getContext('2d');
-//     window.myDoughnut = new Chart(ctx, config1);
-// }
+function loadDonutChart(){
+    var ctx = document.getElementById('canvas2').getContext('2d');
+    window.myDoughnut = new Chart(ctx, config1);
+}
