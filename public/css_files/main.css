@@ -1,8 +1,7 @@
 html, body {
   padding: 0;
   margin: 0;
-  width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background-image: -webkit-gradient(linear, right top, left bottom, from(white), to(#337ab7));
   background-image: -o-linear-gradient(top right, white, #337ab7);
   background-image: linear-gradient(to bottom left, white, #337ab7); }
@@ -83,8 +82,8 @@ nav {
     background-color: #F5F5F5;
     border-radius: 10px; }
   .side-dash-wrapper::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
     background-color: #F5F5F5; }
   .side-dash-wrapper::-webkit-scrollbar-thumb {
     border-radius: 8px;
@@ -137,6 +136,8 @@ nav {
     height: 100%; }
     .main-board .top-graph canvas {
       height: 250px !important; }
+  .main-board .middle-graph canvas {
+    height: 300px !important; }
   .main-board .bottom-graph canvas {
     height: 500px !important; }
 

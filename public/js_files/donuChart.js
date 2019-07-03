@@ -31,6 +31,7 @@ var config1 = {
         ]
     },
     options: {
+        maintainAspectRatio: false,
         responsive: true,
         legend: {
             position: 'top',
