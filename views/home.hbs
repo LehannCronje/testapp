@@ -1,7 +1,13 @@
 <nav>
     <div>
         <h2>Datasmart analytics</h2>
-        <a href="/logout">Logout</a>
+        <div class="dropdown">
+            <img src="/img/user.svg" alt=""><span>Lehann Cronje</span>
+            <div class="content">
+                <a href="/logout">View Profile</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
     </div>
 </nav>
 <div class="side-dash-wrapper">
@@ -32,11 +38,29 @@
         </div>    
     </div>
 </div>
+<div class="info-top">
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="data-info col-2 ml-auto">
+                <h5>Reference data</h5>
+                <p>25%</p>
+            </div>
+            <div class="data-info center-pill col-2">
+                <h5>Reference data</h5>
+                <p>25%</p>
+            </div>
+            <div class="data-info col-2 mr-auto">
+                <h5>Reference data</h5>
+                <p>25%</p>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="main-board">
     <div class="container-fluid">
         <div class="row">
             <div class="top-graph col-12 graph">
-                <div class="graph-container">
+                <div id="container-bar" class="graph-container">
                     <canvas id="canvas"></canvas>
                     <div class="dropdown">
                         <button class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
@@ -61,9 +85,63 @@
                     </div>
                 </div>
             </div>
-            <div class="middle-graph col-6 col-md-4 graph">
-                <div class="graph-container">
+
+            <div class="middle-graph col-lg-6 col-xl-5 graph ml-auto">
+                <div id="container-donut" class="graph-container">
                     <canvas id="canvas2"></canvas>
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            Years
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button id='2015' value='2015' onclick="hideData(this.value)">2015</button>
+                            <button id='2016' value='2016' onclick="hideData(this.value)">2016</button>
+                            <button id='2017' value='2017' onclick="hideData(this.value)">2017</button>
+                            <button id='2018' value='2018' onclick="hideData(this.value)">2018</button>
+                            <button id='2019' value='2019' onclick="hideData(this.value)">2019</button>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            Types
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button id='import' value='import' onclick="toggleType(this.value)">import</button>
+                            <button id='export' value='export' onclick="toggleType(this.value)">export</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle-graph col-lg-6 col-xl-5 graph mr-auto">
+                <div id="container-donut1" class="graph-container">
+                    <canvas id="canvas3"></canvas>
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            Years
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button id='2015' value='2015' onclick="hideData(this.value)">2015</button>
+                            <button id='2016' value='2016' onclick="hideData(this.value)">2016</button>
+                            <button id='2017' value='2017' onclick="hideData(this.value)">2017</button>
+                            <button id='2018' value='2018' onclick="hideData(this.value)">2018</button>
+                            <button id='2019' value='2019' onclick="hideData(this.value)">2019</button>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            Types
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button id='import' value='import' onclick="toggleType(this.value)">import</button>
+                            <button id='export' value='export' onclick="toggleType(this.value)">export</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-graph col-12 graph">
+                <div id="container-bar1" class="graph-container">
+                    <canvas id="canvas4"></canvas>
                     <div class="dropdown">
                         <button class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
                             Years

@@ -122,11 +122,11 @@ var config1 = {
 //     window.myDoughnut.update();
 // });
 
-function loadDonutChart(){
-    var canvas = document.getElementById('canvas2');
-    var parent = document.getElementById('container-donut');
+function loadDonutChart1(){
+    var canvas = document.getElementById('canvas3');
+    var parent = document.getElementById('container-donut1');
     canvas.width = parent.offsetWidth;
     canvas.height = parent.offsetHeight;
-    var ctx = document.getElementById('canvas2').getContext('2d');
+    var ctx = document.getElementById('canvas3').getContext('2d');
     window.myDoughnut = new Chart(ctx, config1);
 }

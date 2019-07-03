@@ -158,7 +158,7 @@ var DataArray =
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		var color = Chart.helpers.color;
-		var barChartData = {
+		var barChartData1 = {
 			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
 			datasets: [{
 				label: '2015',
@@ -219,12 +219,12 @@ for(var i=0;i<years.length;i++){
 			t++;
 		}
 	}
-	barChartData.datasets[i].data = dataImport;
+	barChartData1.datasets[i].data = dataImport;
 };
 document.getElementById('export').classList.add('active');
 
-function hideData(par){
-	barChartData.datasets.forEach(function(ds){
+function hideData1(par){
+	barChartData1.datasets.forEach(function(ds){
 		if(ds.label == par){
 			for(var i=0;i<states.length;i++){
 				if(states[i][0]==par){
@@ -244,7 +244,7 @@ function hideData(par){
 	
 	window.myBar.update();
 }
-function toggleType(type){
+function toggleType1(type){
 	for(var i=0;i<years.length;i++){
 		var dataImport = [];
 		var t=0;
@@ -254,7 +254,7 @@ function toggleType(type){
 				t++;
 			}
 		}
-		barChartData.datasets[i].data = dataImport;
+		barChartData1.datasets[i].data = dataImport;
 	};
 	if(type=='import'){
 		document.getElementById(type).classList.remove('active');
@@ -338,15 +338,15 @@ function toggleType(type){
 		// 	window.myBar.update();
         // });
         
-        function loadBarChart(){
-            var canvas = document.getElementById('canvas');
-            var parent = document.getElementById('container-bar');
+        function loadBarChart1(){
+            var canvas = document.getElementById('canvas4');
+            var parent = document.getElementById('container-bar1');
             canvas.width = parent.offsetWidth;
             canvas.height = parent.offsetHeight;
-            var ctx = document.getElementById('canvas').getContext('2d');
+            var ctx = document.getElementById('canvas4').getContext('2d');
             window.myBar = new Chart(ctx, {
                 type: 'bar',
-                data: barChartData,
+                data: barChartData1,
                 options: {
                     maintainAspectRatio: true,
                     responsive: true,

@@ -41,23 +41,62 @@ nav{
     width: 100%;
     margin:20px 0px 20px 0px;
     div{
-        margin-left:16%;
+        margin-left:18%;
         display: flex;
         justify-content:center;
         align-items: center;
         h2{
-           margin-right:25%;
+        //    margin-right:22%;
+        width:70%;
            text-transform: uppercase;
         }
-        a{
-            margin-left:25%; 
+        img{
+            width:50px;
+            height:50px;
+        }
+        .dropdown{
+            margin-left:0px;
+            padding-right:15px;
+            position: relative;
+            display: inline-block;
+            // margin-left:22%; 
             color:white;
             font-weight:400;
             padding:10px;
-            background-color:rgb(51,122,183);
-            text-decoration: none;
             text-transform: uppercase;
             border-radius:5px;
+            font-size:15px;
+            span{
+                margin-left:10px;
+                margin-right:30px;
+                color:rgb(51,122,183);
+            }
+            .content{
+                display:none;
+                position:absolute;
+                // left: 66%;
+                // top: 72%;
+                padding: 10px 10px 10px 10px;
+                transition:.5s;
+                background: rgb(51,122,183);
+                // transform: translateY(100%) translateX(100%);
+                a{
+                    display:block;
+                    padding:5px 0;
+                    color:white;
+                }
+                a:hover{
+                    color: rgba(255,255,255,0.7);
+                }
+            }
+        }
+        .dropdown:hover{
+            .content{
+                display:block;
+            }
+        }
+        a:hover{
+            text-decoration: none;
         }
     }
 }
@@ -148,26 +187,43 @@ nav{
     transition: 0.5s;
     z-index: 999;
 }
+.info-top{
+    width:83%;
+    margin-left:17%;
+    .data-info{
+        margin-top:100px;
+        padding:10px;
+        // backgrund-color:rgba(46, 115, 245, 0.1);
+        background-color: rgb(240,248,255);
+        border-radius: 10px;
+        box-shadow: 0 2px 11px 0 rgba(0,0,0,.2), 0 2px 15px 0 rgba(0,0,0,.35);
+    }
+    .center-pill{
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+}
 .main-board{
     width: 83%;
     margin-left:17%;
     display: inline-block;
     // background-image: linear-gradient(to bottom left, white, rgb(51,122,183));
     .top-graph{
-        margin-top:100px;
+        margin-top:50px;
         height:100%;
         canvas{
-            height:250px !important;
+            height:300px !important;
         }
     }
     .middle-graph{
+        height:100%;
         canvas{
             height:300px !important;
         }
     }
     .bottom-graph{
         canvas{
-            height:500px !important;
+            height:300px !important;
         }
     }
 }
