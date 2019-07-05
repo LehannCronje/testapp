@@ -147,11 +147,11 @@
                             Years
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <button id='2015' value='2015' onclick="hideData(this.value)">2015</button>
-                            <button id='2016' value='2016' onclick="hideData(this.value)">2016</button>
-                            <button id='2017' value='2017' onclick="hideData(this.value)">2017</button>
-                            <button id='2018' value='2018' onclick="hideData(this.value)">2018</button>
-                            <button id='2019' value='2019' onclick="hideData(this.value)">2019</button>
+                            <button id='2015v3' value='2015' onclick="hideData3(this.value)">2015</button>
+                            <button id='2016v3' value='2016' onclick="hideData3(this.value)">2016</button>
+                            <button id='2017v3' value='2017' onclick="hideData3(this.value)">2017</button>
+                            <button id='2018v3' value='2018' onclick="hideData3(this.value)">2018</button>
+                            <button id='2019v3' value='2019' onclick="hideData3(this.value)">2019</button>
                         </div>
                     </div>
                     <div class="dropdown">
@@ -159,8 +159,29 @@
                             Types
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <button id='import' value='import' onclick="toggleType(this.value)">import</button>
-                            <button id='export' value='export' onclick="toggleType(this.value)">export</button>
+                            <button id='importv3' value='Imports' onclick="toggleType3(this.value)">import</button>
+                            <button id='exportv3' value='Exports' onclick="toggleType3(this.value)">export</button>
+                        </div>
+                    </div>
+                     <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            ValCat
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button id='ExgeneralRebate' value='Ex Warehouse â€“ General Rebate of Customs Duties' onclick="toggleCat(this.value)">Ex Warehouse â€“ General Rebate of Customs Duties</button>
+                            <button id='ExpaymentDuty' value='Ex Warehouse â€“ Payment of Duty ' onclick="toggleCat(this.value)">Ex Warehouse â€“ Payment of Duty</button>
+                            <button id='ExremovalBond' value='Ex Warehouse â€“ Removal in Bond' onclick="toggleCat(this.value)">Ex Warehouse â€“ Removal in Bond</button>
+                            <button id='ExWarehousing' value='Ex Warehouse â€“ Re-Warehousing' onclick="toggleCat(this.value)">Ex Warehouse â€“ Re-Warehousing</button>
+                            <button id='exportImportNotEx' value='Export of imported goods (not ex customs and excise warehouse)' onclick="toggleCat(this.value)">Export of imported goods (not ex customs and excise warehouse)</button>
+                            <button id='paymentDutyEx' value='Export of imported goods ex customs and excise warehouse' onclick="toggleCat(this.value)">Export of imported goods ex customs and excise warehouse</button>
+                            <button id='removalBondSA' value='Export of South African Products (not ex customs and excise warehouse)' onclick="toggleCat(this.value)">Export of South African Products (not ex customs and excise warehouse)</button>
+                            <button id='generalDebate' value='General Rebate of Customs Duties' onclick="toggleCat(this.value)">General Rebate of Customs Duties</button>
+                            <button id='exportImport' value='Payment of Duty or Free' onclick="toggleCat(this.value)">Payment of Duty or Free</button>
+                            <button id='perExport' value='Permanent Exports' onclick="toggleCat(this.value)">Permanent Exports</button>
+                            <button id='perImport' value='Permanent Import' onclick="toggleCat(this.value)">Permanent Import</button>
+                            <button id='reEx' value='Re-Export (Temporary Admission)' onclick="toggleCat(this.value)">Re-Export (Temporary Admission)</button>
+                            <button id='TempImp' value='Temporary Import' onclick="toggleCat(this.value)">Temporary Import</button>
+                            <button id='ware' value='Warehousing' onclick="toggleCat(this.value)">Warehousing</button>
                         </div>
                     </div>
                 </div>

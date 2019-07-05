@@ -1354,23 +1354,70 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 		];
 		var types = [
 			['Imports',true],
-			['Exports',false]
+			['Exports',false],
+        ]
+        var valCat = [
+			['ExgeneralRebate',true,'Ex Warehouse â€“ General Rebate of Customs Duties'],
+            ['ExpaymentDuty',false,'Ex Warehouse â€“ Payment of Duty '],
+            ['ExremovalBond',false,'Ex Warehouse â€“ Removal in Bond'],
+            ['ExWarehousing',false,'Ex Warehouse â€“ Re-Warehousing'],
+            ['exportImportNotEx',false,'Export of imported goods (not ex customs and excise warehouse)'],
+            ['paymentDutyEx',false,'Export of imported goods ex customs and excise warehouse'],
+            ['removalBondSA',false,'Export of South African Products (not ex customs and excise warehouse)'],
+            ['generalDebate',false,'General Rebate of Customs Duties'],
+            ['exportImport',false,'Payment of Duty or Free'],
+            ['perExport',false,'Permanent Exports'],
+            ['perImport',false,'Permanent Import'],
+            ['reEx',false,'Re-Export (Temporary Admission)'],
+            ['TempImp',false,'Temporary Import'],
+            ['ware',false,'Warehousing'],
 		]
 var years = ['2015','2016','2017','2018','2019'];
 for(var i=0;i<years.length;i++){
 	var dataImport1 = [];
 	var t=0;
 	for(var k=0;k<DataArray1.length;k++){
-		if(DataArray1[k][1]==years[i] && DataArray1[k][0]=='Imports'){
+		if(DataArray1[k][1]==years[i] && DataArray1[k][0]=='Imports' && DataArray1[k][3] == 'Ex Warehouse â€“ General Rebate of Customs Duties'){
 			dataImport1[t] = DataArray1[k][4];	
 			t++;
 		}
 	}
 	barChartData1.datasets[i].data = dataImport1;
 };
-document.getElementById('export').classList.add('active');
+document.getElementById('ExgeneralRebate').classList.add('active');
+document.getElementById('exportv3').classList.add('active');
 
-function hideData1(par){
+function getType(){
+    for(i=0;i<types.length;i++){
+        if(types[i][1]){
+            return types[i][0];
+        }
+    }
+}
+
+function toggleCat(cat){
+    for(var i=0;i<years.length;i++){
+		var dataImport = [];
+		var t=0;
+		for(var k=0;k<DataArray1.length;k++){
+			if(DataArray1[k][1]==years[i] && DataArray1[k][0]==getType() && DataArray1[k][3] == cat){
+                dataImport[t] = DataArray1[k][4];
+				t++;
+			}
+		}
+		barChartData1.datasets[i].data = dataImport;
+    };
+    for(var i=0;i<valCat.length;i++){
+        if(cat == valCat[i][2]){
+            document.getElementById(valCat[i][0]).classList.add('active');
+        }else{
+            document.getElementById(valCat[i][0]).classList.remove('active');
+        }
+    }
+	window.myBar1.update();
+}
+
+function hideData3(par){
 	barChartData1.datasets.forEach(function(ds){
 		if(ds.label == par){
 			for(var i=0;i<states.length;i++){
@@ -1378,41 +1425,41 @@ function hideData1(par){
 					if(states[i][1]){
 						ds.hidden = true;
 						states[i][1] = false;
-						document.getElementById(par).classList.add('active');
+						document.getElementById(par+'v3').classList.add('active');
 					}else{
 						ds.hidden = false;
 						states[i][1] = true;
-						document.getElementById(par).classList.remove('active');
+						document.getElementById(par+'v3').classList.remove('active');
 					}
 				}
 			}
 		}
 	})
 	
-	window.myBar.update();
+	window.myBar1.update();
 }
-function toggleType1(type){
+function toggleType3(type){
 	for(var i=0;i<years.length;i++){
 		var dataImport = [];
 		var t=0;
 		for(var k=0;k<DataArray1.length;k++){
 			if(DataArray1[k][1]==years[i] && DataArray1[k][0]==type){
-				dataImport[t] = DataArray[k][4];
+                dataImport[t] = DataArray1[k][4];
 				t++;
 			}
 		}
 		barChartData1.datasets[i].data = dataImport;
 	};
-	if(type=='import'){
-		document.getElementById(type).classList.remove('active');
-		document.getElementById('export').classList.add('active');
+	if(type=='Imports'){
+		document.getElementById('importv3').classList.remove('active');
+		document.getElementById('exportv3').classList.add('active');
 		window.myBar.options.title.text = 'Subaru Imports';
 	}else{
-		document.getElementById(type).classList.remove('active');
-		document.getElementById('import').classList.add('active');
+		document.getElementById('exportv3').classList.remove('active');
+		document.getElementById('importv3').classList.add('active');
 		window.myBar.options.title.text = 'Subaru Exports';
 	}
-	window.myBar.update();
+	window.myBar1.update();
 }
 		
 
@@ -1490,8 +1537,8 @@ function toggleType1(type){
             var parent = document.getElementById('container-bar1');
             canvas.width = parent.offsetWidth;
             canvas.height = parent.offsetHeight;
-            var ctx = document.getElementById('canvas4').getContext('2d');
-            window.myBar = new Chart(ctx, {
+            var ctx1 = document.getElementById('canvas4').getContext('2d');
+            window.myBar1 = new Chart(ctx1, {
                 type: 'bar',
                 data: barChartData1,
                 options: {

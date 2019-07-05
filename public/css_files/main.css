@@ -53,7 +53,7 @@ nav {
         -ms-flex-align: center;
             align-items: center; }
     nav div h2 {
-      width: 70%;
+      width: 75%;
       text-transform: uppercase; }
     nav div img {
       width: 50px;
@@ -225,7 +225,7 @@ button:hover {
       display: inline-block;
       background-color: aliceblue; }
     .graph .graph-container .dropdown-menu {
-      min-width: 100px;
+      min-width: 250px;
       background-color: aliceblue; }
       .graph .graph-container .dropdown-menu button {
         border-bottom: solid 1px #337ab7;
