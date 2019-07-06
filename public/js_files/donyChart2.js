@@ -2,16 +2,16 @@ var randomScalingFactor = function() {
     return Math.round(Math.random() * 100);
 };
 
-var config1 = {
+var config2 = {
     type: 'doughnut',
     data: {
         datasets: [{
             data: [
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
+                51,
+                52,
+                53,
+                54,
+                55,
             ],
             backgroundColor: [
                 window.chartColors.red,
@@ -128,5 +128,5 @@ function loadDonutChart1(){
     canvas.width = parent.offsetWidth;
     canvas.height = parent.offsetHeight;
     var ctx = document.getElementById('canvas3').getContext('2d');
-    window.myDoughnut = new Chart(ctx, config1);
+    window.myDoughnut1 = new Chart(ctx, config2);
 }
