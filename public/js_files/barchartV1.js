@@ -1357,25 +1357,26 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 			['Exports',false],
         ]
         var valCat = [
-			['ExgeneralRebate',true,'Ex Warehouse â€“ General Rebate of Customs Duties'],
-            ['ExpaymentDuty',false,'Ex Warehouse â€“ Payment of Duty '],
-            ['ExremovalBond',false,'Ex Warehouse â€“ Removal in Bond'],
-            ['ExWarehousing',false,'Ex Warehouse â€“ Re-Warehousing'],
-            ['exportImportNotEx',false,'Export of imported goods (not ex customs and excise warehouse)'],
-            ['paymentDutyEx',false,'Export of imported goods ex customs and excise warehouse'],
-            ['removalBondSA',false,'Export of South African Products (not ex customs and excise warehouse)'],
-            ['generalDebate',false,'General Rebate of Customs Duties'],
-            ['exportImport',false,'Payment of Duty or Free'],
-            ['perExport',false,'Permanent Exports'],
-            ['perImport',false,'Permanent Import'],
-            ['reEx',false,'Re-Export (Temporary Admission)'],
-            ['TempImp',false,'Temporary Import'],
-            ['ware',false,'Warehousing'],
+			['ExgeneralRebate',true,'Ex Warehouse â€“ General Rebate of Customs Duties'], //import
+            ['ExpaymentDuty',true,'Ex Warehouse â€“ Payment of Duty '], //import
+            ['ExremovalBond',true,'Ex Warehouse â€“ Removal in Bond'], //import
+            ['ExWarehousing',true,'Ex Warehouse â€“ Re-Warehousing '], //import
+            ['exportImportNotEx',true,'Export of imported goods (not ex customs and excise warehouse)'], //export
+            ['paymentDutyEx',true,'Export of imported goods ex customs and excise warehouse'], //export
+            ['removalBondSA',true,'Export of South African Products (not ex customs and excise warehouse)'], //export
+            ['generalDebate',true,'General Rebate of Customs Duties '], //import
+            ['exportImport',true,'Payment of Duty or Free'], //import
+            ['perExport',true,'Permanent Exports'], //export
+            ['perImport',true,'Permanent Import'], //import
+            ['reEx',true,'Re-Export (Temporary Admission)'], //export
+            ['TempImp',true,'Temporary Import'], //import
+            ['ware',true,'Warehousing'], //import
 		]
 var years = ['2015','2016','2017','2018','2019'];
 for(var i=0;i<years.length;i++){
 	var dataImport1 = [];
 	var t=0;
+	
 	for(var k=0;k<DataArray1.length;k++){
 		if(DataArray1[k][1]==years[i] && DataArray1[k][0]=='Imports' && DataArray1[k][3] == 'Ex Warehouse â€“ General Rebate of Customs Duties'){
 			dataImport1[t] = DataArray1[k][4];	
@@ -1387,6 +1388,16 @@ for(var i=0;i<years.length;i++){
 document.getElementById('ExgeneralRebate').classList.add('active');
 document.getElementById('exportv3').classList.add('active');
 
+function getPurposeCode(){
+	var purposeCodeArr = [];
+	for(var i=0; i<valCat.length; i++){
+		if(!valCat[i][1]){
+			purposeCodeArr[i]=valCat[i][2];
+		}
+	}
+	return purposeCodeArr;
+}
+
 function getType(){
     for(i=0;i<types.length;i++){
         if(types[i][1]){
@@ -1396,24 +1407,27 @@ function getType(){
 }
 
 function toggleCat(cat){
+	for(var i=0;i<valCat.length;i++){
+		if(cat == valCat[i][2]){
+			document.getElementById(valCat[i][0]).classList.add('active');
+			valCat[i][1]=false;
+		}else{
+			document.getElementById(valCat[i][0]).classList.remove('active');
+			valCat[i][1]=true;
+			
+		}
+	}
     for(var i=0;i<years.length;i++){
 		var dataImport = [];
 		var t=0;
 		for(var k=0;k<DataArray1.length;k++){
 			if(DataArray1[k][1]==years[i] && DataArray1[k][0]==getType() && DataArray1[k][3] == cat){
-                dataImport[t] = DataArray1[k][4];
+				dataImport[t] = DataArray1[k][4];
 				t++;
 			}
 		}
 		barChartData1.datasets[i].data = dataImport;
     };
-    for(var i=0;i<valCat.length;i++){
-        if(cat == valCat[i][2]){
-            document.getElementById(valCat[i][0]).classList.add('active');
-        }else{
-            document.getElementById(valCat[i][0]).classList.remove('active');
-        }
-    }
 	window.myBar1.update();
 }
 
@@ -1454,10 +1468,14 @@ function toggleType3(type){
 		document.getElementById('importv3').classList.remove('active');
 		document.getElementById('exportv3').classList.add('active');
 		window.myBar.options.title.text = 'Subaru Imports';
+		types[0][1]=true;
+		types[1][1]=false;
 	}else{
 		document.getElementById('exportv3').classList.remove('active');
 		document.getElementById('importv3').classList.add('active');
 		window.myBar.options.title.text = 'Subaru Exports';
+		types[0][1]=false;
+		types[1][1]=true;
 	}
 	window.myBar1.update();
 }
