@@ -562,7 +562,7 @@ var config1 = {
     ],
         
         labels: [
-            '2015',
+            '2012',
             '2016',
             '2017',
             '2018',
@@ -588,6 +588,14 @@ var config1 = {
 
 var years = ['2015','2016','2017','2018','2019'];
 var sets = ['87','84','85','40','70'];
+
+var states1 = [
+    ['2015',true],
+    ['2016',true],
+    ['2017',true],
+    ['2018',true],
+    ['2019',true],
+];
 
 for(var j=0;j<sets.length;j++){
     var dataImport=[];
@@ -627,6 +635,49 @@ function donut1ToggleType(type){
 		document.getElementById('donut1Imp').classList.add('active');
     }
     window.myDoughnut.update();
+}
+
+function hideData2(par){
+
+    var index = years.indexOf(par);
+	config1.data.datasets.forEach(function(ds){
+		if(states[index][1]){
+            ds._meta[2].data[index].hidden = true;
+            // states[index][1] = false;
+        }else{
+            ds._meta[2].data[index].hidden = false;
+            // states[index][1] = true;
+        }
+    });
+    if(states[index][1]){
+        states[index][1] = false;
+        document.getElementById(par+'v2').classList.add('active');
+    }else{
+        states[index][1] = true;
+        document.getElementById(par+'v2').classList.remove('active');
+    }
+
+	// config1.data.datasets.forEach(function(ds){
+	// 	if(ds.label == par){
+    //         for(var i=0;i<states1.length;i++){
+    //             if(states1[i][0]==par){
+    //                 if(states1[i][1]){
+    //                     console.log(ds);
+    //                     // ds.data[0]=0;
+						
+	// 					states1[i][1] = false;
+	// 					document.getElementById(par+'v2').classList.add('active');
+	// 				}else{
+	// 					ds._meta[2].data[i].hidden = false;
+	// 					states1[i][1] = true;
+	// 					document.getElementById(par+'v2').classList.remove('active');
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// })
+	
+	window.myDoughnut.update();
 }
 
 // document.getElementById('randomizeData2').addEventListener('click', function() {
