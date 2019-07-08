@@ -533,6 +533,21 @@ var config2 = {
 
 var years2 = ['2015','2016','2017','2018','2019'];
 var donutMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+var monthStates = [
+    ['January',true],
+    ['February',true],
+    ['March',true],
+    ['April',true],
+    ['May',true],
+    ['June',true],
+    ['July',true],
+    ['August',true],
+    ['September',true],
+    ['October',true],
+    ['November',true],
+    ['December',true],
+];
 var states3 = [
     ['2015',true],
     ['2016',true],
@@ -555,6 +570,7 @@ for(var j=0;j<years2.length;j++){
     };
     config2.data.datasets[j].data = dataImport;
 }
+document.getElementById('donut2Exp').classList.add('active');
 
 function hideData4(par){
 	config2.data.datasets.forEach(function(ds){
@@ -579,22 +595,46 @@ function hideData4(par){
 
 function hideMonths4(par){
 
-    var index = years.indexOf(par);
+    var index = donutMonth.indexOf(par);
 	config2.data.datasets.forEach(function(ds){
-		if(states[index][1]){
-            ds._meta[2].data[index].hidden = true;
+		if(monthStates[index][1]){
+            ds._meta[3].data[index].hidden = true;
         }else{
-            ds._meta[2].data[index].hidden = false;
+            ds._meta[3].data[index].hidden = false;
         }
     });
-    if(states3[index][1]){
-        states3[index][1] = false;
-        document.getElementById(par+'v4').classList.add('active');
+    if(monthStates[index][1]){
+        monthStates[index][1] = false;
+        document.getElementById(par).classList.add('active');
     }else{
-        states3[index][1] = true;
-        document.getElementById(par+'v4').classList.remove('active');
+        monthStates[index][1] = true;
+        document.getElementById(par).classList.remove('active');
     }
 	window.myDoughnut1.update();
+}
+
+function donut2ToggleType(type){
+    for(var j=0;j<years2.length;j++){
+        var dataImport=[];
+        for(var i=0;i<donutMonth.length;i++){
+            var total = 0;
+            for(var k=0;k<donuChartData2.length;k++){
+                if(donuChartData2[k][0]==years2[j] && donuChartData2[k][1] == donutMonth[i] && donuChartData2[k][3] == type){
+                    total = total + donuChartData2[k][2];
+                }
+            }
+            dataImport[i] = total;
+        };
+        config2.data.datasets[j].data = dataImport;
+    }
+    if(type=='Imports'){
+        document.getElementById("donut2Imp").classList.remove('active');
+		document.getElementById('donut2Exp').classList.add('active');
+    }else{
+        document.getElementById("donut2Exp").classList.remove('active');
+		document.getElementById('donut2Imp').classList.add('active');
+    }
+    window.myDoughnut1.update();
 }
 // document.getElementById('randomizeData2').addEventListener('click', function() {
 //     config1.data.datasets.forEach(function(dataset) {

@@ -128,12 +128,31 @@
                         </div>
                     </div>
                     <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            Months
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button id='January' value='January' onclick="hideMonths4(this.value)">January</button>
+                            <button id='February' value='February' onclick="hideMonths4(this.value)">February</button>
+                            <button id='March' value='March' onclick="hideMonths4(this.value)">March</button>
+                            <button id='April' value='April' onclick="hideMonths4(this.value)">April</button>
+                            <button id='May' value='May' onclick="hideMonths4(this.value)">May</button>
+                            <button id='June' value='June' onclick="hideMonths4(this.value)">June</button>
+                            <button id='July' value='July' onclick="hideMonths4(this.value)">July</button>
+                            <button id='August' value='August' onclick="hideMonths4(this.value)">August</button>
+                            <button id='September' value='September' onclick="hideMonths4(this.value)">September</button>
+                            <button id='October' value='October' onclick="hideMonths4(this.value)">October</button>
+                            <button id='November' value='November' onclick="hideMonths4(this.value)">November</button>
+                            <button id='December' value='December' onclick="hideMonths4(this.value)">December</button>
+                        </div>
+                    </div>
+                    <div class="dropdown">
                         <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
                             Types
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <button id='import' value='Imports' onclick="toggleType(this.value)">import</button>
-                            <button id='export' value='Exports' onclick="toggleType(this.value)">export</button>
+                            <button id='donut2Imp' value='Imports' onclick="donut2ToggleType(this.value)">import</button>
+                            <button id='donut2Exp' value='Exports' onclick="donut2ToggleType(this.value)">export</button>
                         </div>
                     </div>
                 </div>
