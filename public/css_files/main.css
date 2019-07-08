@@ -161,7 +161,7 @@ nav {
     margin-top: 100px;
     padding: 10px;
     background-color: aliceblue;
-    border-radius: 10px;
+    border-radius: 5px;
     -webkit-box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.35);
             box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.35); }
   .info-top .center-pill {
@@ -218,7 +218,7 @@ button:hover {
   .graph .graph-container {
     padding: 20px;
     background-color: aliceblue;
-    border-radius: 10px;
+    border-radius: 5px;
     -webkit-box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.35);
             box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.35); }
     .graph .graph-container .dropdown {
