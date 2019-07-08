@@ -522,7 +522,8 @@ var config2 = {
         },
         title: {
             display: true,
-            text: 'Chart.js Doughnut Chart'
+            text: 'Transport types',
+            fontSize: 26
         },
         animation: {
             animateScale: true,

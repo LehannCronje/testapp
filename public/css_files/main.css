@@ -2,9 +2,7 @@ html, body {
   padding: 0;
   margin: 0;
   min-height: 100vh;
-  background-image: -webkit-gradient(linear, right top, left bottom, from(white), to(#337ab7));
-  background-image: -o-linear-gradient(top right, white, #337ab7);
-  background-image: linear-gradient(to bottom left, white, #337ab7); }
+  background-color: rgba(54, 69, 79, 0.1); }
 
 .login-container {
   height: 100vh;
@@ -12,7 +10,6 @@ html, body {
   .login-container .login-wrapper {
     padding: 50px;
     background-color: aliceblue;
-    border-radius: 5px;
     -webkit-box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2), 0 2px 30px 0 rgba(0, 0, 0, 0.35);
             box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2), 0 2px 30px 0 rgba(0, 0, 0, 0.35); }
     .login-container .login-wrapper h1 {
@@ -22,8 +19,7 @@ html, body {
     .login-container .login-wrapper input {
       width: 100%;
       padding: 10px;
-      margin: 10px 0px;
-      border-radius: 5px; }
+      margin: 10px 0px; }
     .login-container .login-wrapper input[type=submit] {
       background-color: #337ab7;
       color: white;
@@ -53,6 +49,7 @@ nav {
         -ms-flex-align: center;
             align-items: center; }
     nav div h2 {
+      color: #337ab7;
       width: 75%;
       text-transform: uppercase; }
     nav div img {
@@ -67,7 +64,6 @@ nav {
       font-weight: 400;
       padding: 10px;
       text-transform: uppercase;
-      border-radius: 5px;
       font-size: 15px; }
       nav div .dropdown span {
         margin-left: 10px;
@@ -97,6 +93,7 @@ nav {
   position: fixed;
   background-color: aliceblue;
   height: 100vh;
+  color: black;
   -webkit-box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2), 0 2px 30px 0 rgba(0, 0, 0, 0.35);
           box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2), 0 2px 30px 0 rgba(0, 0, 0, 0.35);
   overflow: scroll;
@@ -116,12 +113,13 @@ nav {
     border-radius: 8px;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #7a99d9), color-stop(0.72, #497dbd), color-stop(0.86, #1c3a94)); }
   .side-dash-wrapper h3 {
-    color: black;
+    color: #337ab7;
     text-transform: uppercase;
     text-align: center;
     margin-top: 20px; }
   .side-dash-wrapper hr {
-    margin-bottom: 0px; }
+    margin-bottom: 0px;
+    background-color: #337ab7; }
   .side-dash-wrapper .side-dash-body {
     display: -webkit-box;
     display: -webkit-flex;
@@ -134,8 +132,8 @@ nav {
       .side-dash-wrapper .side-dash-body ul li {
         font-size: 24px; }
         .side-dash-wrapper .side-dash-body ul li a {
-          display: block;
           color: black;
+          display: block;
           font-weight: 400;
           padding: 10px;
           border-bottom: solid 1px #337ab7;
@@ -143,10 +141,10 @@ nav {
           text-transform: uppercase;
           width: 100%; }
         .side-dash-wrapper .side-dash-body ul li a:hover {
-          color: #337ab7;
           -webkit-transition: .2s;
           -o-transition: .2s;
-          transition: .2s; }
+          transition: .2s;
+          color: #337ab7; }
         .side-dash-wrapper .side-dash-body ul li .child-menu li {
           font-size: 16px;
           padding: 0px; }
@@ -161,9 +159,10 @@ nav {
     margin-top: 100px;
     padding: 10px;
     background-color: aliceblue;
-    border-radius: 5px;
     -webkit-box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.35);
             box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.35); }
+    .info-top .data-info h5 {
+      font-size: 20px; }
   .info-top .center-pill {
     margin-right: 5%;
     margin-left: 5%; }
@@ -218,7 +217,6 @@ button:hover {
   .graph .graph-container {
     padding: 20px;
     background-color: aliceblue;
-    border-radius: 5px;
     -webkit-box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.35);
             box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.35); }
     .graph .graph-container .dropdown {

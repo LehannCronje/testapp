@@ -577,7 +577,8 @@ var config1 = {
         },
         title: {
             display: true,
-            text: 'Chart.js Doughnut Chart'
+            text: 'Chapter Summary',
+            fontSize: 26
         },
         animation: {
             animateScale: true,

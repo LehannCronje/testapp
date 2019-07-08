@@ -359,7 +359,7 @@ function toggleType(type){
                     title: {
                         display: true,
 						text: 'Subaru Imports',
-						fontSize: 18
+						fontSize: 26
 					},
 					scales:{
 						yAxes:[{

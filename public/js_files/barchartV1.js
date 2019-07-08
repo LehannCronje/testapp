@@ -1517,8 +1517,8 @@ function toggleType3(type){
                     },
                     title: {
                         display: true,
-						text: 'Subaru Imports',
-						fontSize: 18
+						text: 'Pro Code Summary',
+						fontSize: 26
 					},
 					scales:{
 						yAxes:[{
