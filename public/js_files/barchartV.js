@@ -198,7 +198,7 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 
 		};
 
-		var states = [
+		var states1 = [
 			['2015',true],
 			['2016',true],
 			['2017',true],
@@ -226,15 +226,15 @@ document.getElementById('export').classList.add('active');
 function hideData(par){
 	barChartData.datasets.forEach(function(ds){
 		if(ds.label == par){
-			for(var i=0;i<states.length;i++){
-				if(states[i][0]==par){
-					if(states[i][1]){
+			for(var i=0;i<states1.length;i++){
+				if(states1[i][0]==par){
+					if(states1[i][1]){
 						ds.hidden = true;
-						states[i][1] = false;
+						states1[i][1] = false;
 						document.getElementById(par).classList.add('active');
 					}else{
 						ds.hidden = false;
-						states[i][1] = true;
+						states1[i][1] = true;
 						document.getElementById(par).classList.remove('active');
 					}
 				}

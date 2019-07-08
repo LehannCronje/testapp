@@ -562,7 +562,7 @@ var config1 = {
     ],
         
         labels: [
-            '2012',
+            '2015',
             '2016',
             '2017',
             '2018',
@@ -573,7 +573,7 @@ var config1 = {
         maintainAspectRatio: true,
         responsive: true,
         legend: {
-            position: 'top',
+            position: 'right',
         },
         title: {
             display: true,
@@ -641,118 +641,25 @@ function hideData2(par){
 
     var index = years.indexOf(par);
 	config1.data.datasets.forEach(function(ds){
-		if(states[index][1]){
+		if(states1[index][1]){
             ds._meta[2].data[index].hidden = true;
-            // states[index][1] = false;
         }else{
             ds._meta[2].data[index].hidden = false;
-            // states[index][1] = true;
         }
     });
-    if(states[index][1]){
-        states[index][1] = false;
+    if(states1[index][1]){
+        states1[index][1] = false;
         document.getElementById(par+'v2').classList.add('active');
     }else{
-        states[index][1] = true;
+        states1[index][1] = true;
         document.getElementById(par+'v2').classList.remove('active');
     }
 
-	// config1.data.datasets.forEach(function(ds){
-	// 	if(ds.label == par){
-    //         for(var i=0;i<states1.length;i++){
-    //             if(states1[i][0]==par){
-    //                 if(states1[i][1]){
-    //                     console.log(ds);
-    //                     // ds.data[0]=0;
-						
-	// 					states1[i][1] = false;
-	// 					document.getElementById(par+'v2').classList.add('active');
-	// 				}else{
-	// 					ds._meta[2].data[i].hidden = false;
-	// 					states1[i][1] = true;
-	// 					document.getElementById(par+'v2').classList.remove('active');
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// })
 	
 	window.myDoughnut.update();
 }
 
-// document.getElementById('randomizeData2').addEventListener('click', function() {
-//     config1.data.datasets.forEach(function(dataset) {
-//         dataset.data = dataset.data.map(function() {
-//             return randomScalingFactor();
-//         });
-//     });
 
-//     window.myDoughnut.update();
-// });
-
-// var colorNames = Object.keys(window.chartColors);
-// document.getElementById('addDataset2').addEventListener('click', function() {
-//     var newDataset = {
-//         backgroundColor: [],
-//         data: [],
-//         label: 'New dataset ' + config1.data.datasets.length,
-//     };
-
-//     for (var index = 0; index < config1.data.labels.length; ++index) {
-//         newDataset.data.push(randomScalingFactor());
-
-//         var colorName = colorNames[index % colorNames.length];
-//         var newColor = window.chartColors[colorName];
-//         newDataset.backgroundColor.push(newColor);
-//     }
-
-//     config1.data.datasets.push(newDataset);
-//     window.myDoughnut.update();
-// });
-
-// document.getElementById('addData2').addEventListener('click', function() {
-//     if (config1.data.datasets.length > 0) {
-//         config1.data.labels.push('data #' + config1.data.labels.length);
-
-//         var colorName = colorNames[config1.data.datasets[0].data.length % colorNames.length];
-//         var newColor = window.chartColors[colorName];
-
-//         config1.data.datasets.forEach(function(dataset) {
-//             dataset.data.push(randomScalingFactor());
-//             dataset.backgroundColor.push(newColor);
-//         });
-
-//         window.myDoughnut.update();
-//     }
-// });
-
-// document.getElementById('removeDataset2').addEventListener('click', function() {
-//     config1.data.datasets.splice(0, 1);
-//     window.myDoughnut.update();
-// });
-
-// document.getElementById('removeData2').addEventListener('click', function() {
-//     config1.data.labels.splice(-1, 1); // remove the label first
-
-//     config1.data.datasets.forEach(function(dataset) {
-//         dataset.data.pop();
-//         dataset.backgroundColor.pop();
-//     });
-
-//     window.myDoughnut.update();
-// });
-
-// document.getElementById('changeCircleSize2').addEventListener('click', function() {
-//     if (window.myDoughnut.options.circumference === Math.PI) {
-//         window.myDoughnut.options.circumference = 2 * Math.PI;
-//         window.myDoughnut.options.rotation = -Math.PI / 2;
-//     } else {
-//         window.myDoughnut.options.circumference = Math.PI;
-//         window.myDoughnut.options.rotation = -Math.PI;
-//     }
-
-//     window.myDoughnut.update();
-// });
 
 function loadDonutChart(){
     var canvas = document.getElementById('canvas2');
