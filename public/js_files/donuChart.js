@@ -506,68 +506,12 @@ var config1 = {
     data: {
         datasets: [{
             data: [],
-            backgroundColor: [
-                window.chartColors.red,
-                window.chartColors.orange,
-                window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
-            ],
+            backgroundColor: [],
             label: '2015'
-        },
-        {
-            data: [],
-            backgroundColor: [
-                window.chartColors.red,
-                window.chartColors.orange,
-                window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
-            ],
-            label: '2016'
-        },
-        {
-            data: [],
-            backgroundColor: [
-                window.chartColors.red,
-                window.chartColors.orange,
-                window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
-            ],
-            label: '2017'
-        },
-        {
-            data: [],
-            backgroundColor: [
-                window.chartColors.red,
-                window.chartColors.orange,
-                window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
-            ],
-            label: '2018'
-        },
-        {
-            data: [],
-            backgroundColor: [
-                window.chartColors.red,
-                window.chartColors.orange,
-                window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
-            ],
-            label: '2019'
         }
     ],
         
-        labels: [
-            '2015',
-            '2016',
-            '2017',
-            '2018',
-            '2019'
-        ]
+        labels: []
     },
     options: {
         maintainAspectRatio: true,
@@ -589,51 +533,104 @@ var config1 = {
 
 var years = ['2015','2016','2017','2018','2019'];
 var sets = ['87','84','85','40','70'];
-
+var colors = [
+    window.chartColors.red,
+    window.chartColors.orange,
+    window.chartColors.yellow,
+    window.chartColors.green,
+    window.chartColors.blue,
+];
 var states1 = [
-    ['2015',true],
-    ['2016',true],
-    ['2017',true],
+    ['2015',false],
+    ['2016',false],
+    ['2017',false],
     ['2018',true],
     ['2019',true],
 ];
+var types2 = [
+    ['Imports',true],
+    ['Exports',false],
+]
 
+var dataImport=[];
 for(var j=0;j<sets.length;j++){
-    var dataImport=[];
-    for(var i=0;i<years.length;i++){
-        var total = 0;
-        for(var k=0;k<donutArr1.length;k++){
-            if(donutArr1[k][4]=='Imports' && donutArr1[k][0]==sets[j] && donutArr1[k][1]==years[i]){
+    var total = 0;
+    for(var k=0;k<donutArr1.length;k++){
+        if(donutArr1[k][4]=='Imports' && donutArr1[k][0]==sets[j]){
+            if(states1[years.indexOf(donutArr1[k][1])][1]){
                 total = total + donutArr1[k][3];
             }
         }
-        dataImport[i] = total;
-    };
-    
-    config1.data.datasets[j].data = dataImport;
+    }   
+    dataImport[j] = total;
 }
+
+arrSort(dataImport);
+config1.data.datasets[0].data = dataImport;
+config1.data.labels = sets;
+config1.data.datasets[0].backgroundColor = colors;
+
 document.getElementById('donut1Exp').classList.add('active');
+document.getElementById('2015v2').classList.add('active');
+document.getElementById('2016v2').classList.add('active');
+document.getElementById('2017v2').classList.add('active');
+
+function getType2(){
+    for(i=0;i<types2.length;i++){
+        if(types2[i][1]){
+            return types2[i][0];
+        }
+    }
+}
+
+function arrSort(arr){
+    for(var i=0; i<arr.length; i++){
+        for(var j=0;j<arr.length;j++){
+            if(arr[i]>arr[j]){
+                var temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                var temp1 = sets[i];
+                sets[i] = sets[j];
+                sets[j] = temp1;
+                var temp3 = colors[i];
+                colors[i] = colors[j];
+                colors[j] = temp3;
+            }
+        }
+    }
+    return arr;
+}
 
 function donut1ToggleType(type){
+    var dataImport=[];
     for(var j=0;j<sets.length;j++){
-        var dataImport=[];
-        for(var i=0;i<years.length;i++){
-            var total = 0;
-            for(var k=0;k<donutArr1.length;k++){
-                if(donutArr1[k][4]==type && donutArr1[k][0]==sets[j] && donutArr1[k][1]==years[i]){
+        var total = 0;
+        for(var k=0;k<donutArr1.length;k++){
+            if(donutArr1[k][4]==type && donutArr1[k][0]==sets[j]){
+                if(states1[years.indexOf(donutArr1[k][1])][1]){
                     total = total + donutArr1[k][3];
                 }
             }
-            dataImport[i] = total;
-        };
-        config1.data.datasets[j].data = dataImport;
-    };
+        }   
+        dataImport[j] = total;
+    }
+
+    arrSort(dataImport);
+    config1.data.datasets[0].data = dataImport;
+    config1.data.labels = sets;
+    config1.data.datasets[0].backgroundColor = colors;
+    
     if(type=='Imports'){
         document.getElementById("donut1Imp").classList.remove('active');
-		document.getElementById('donut1Exp').classList.add('active');
+        document.getElementById('donut1Exp').classList.add('active');
+        types2[0][1]= true;
+        types2[1][1]= false;
     }else{
         document.getElementById("donut1Exp").classList.remove('active');
-		document.getElementById('donut1Imp').classList.add('active');
+        document.getElementById('donut1Imp').classList.add('active');
+        types2[0][1]= false;
+        types2[1][1]= true;
     }
     window.myDoughnut.update();
 }
@@ -641,13 +638,6 @@ function donut1ToggleType(type){
 function hideData2(par){
 
     var index = years.indexOf(par);
-	config1.data.datasets.forEach(function(ds){
-		if(states1[index][1]){
-            ds._meta[2].data[index].hidden = true;
-        }else{
-            ds._meta[2].data[index].hidden = false;
-        }
-    });
     if(states1[index][1]){
         states1[index][1] = false;
         document.getElementById(par+'v2').classList.add('active');
@@ -655,7 +645,23 @@ function hideData2(par){
         states1[index][1] = true;
         document.getElementById(par+'v2').classList.remove('active');
     }
+    var dataImport=[];
+    for(var j=0;j<sets.length;j++){
+        var total = 0;
+        for(var k=0;k<donutArr1.length;k++){
+            if(donutArr1[k][4]==getType2() && donutArr1[k][0]==sets[j]){
+                if(states1[years.indexOf(donutArr1[k][1])][1]){
+                    total = total + donutArr1[k][3];
+                }
+            }
+        }   
+        dataImport[j] = total;
+    }
 
+    arrSort(dataImport);
+    config1.data.datasets[0].data = dataImport;
+    config1.data.labels = sets;
+    config1.data.datasets[0].backgroundColor = colors;
 	
 	window.myDoughnut.update();
 }

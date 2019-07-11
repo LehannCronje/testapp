@@ -1328,7 +1328,7 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 			['2018',true],
 			['2019',true],
 		];
-		var types = [
+		var types1 = [
 			['Imports',true],
 			['Exports',false],
         ]
@@ -1383,8 +1383,8 @@ function getPurposeCode(){
 }
 
 function getType(){
-    for(i=0;i<types.length;i++){
-        if(types[i][1]){
+    for(i=0;i<types1length;i++){
+        if(types1[i][1]){
             return types[i][0];
         }
     }
@@ -1484,14 +1484,14 @@ function toggleType3(type){
 		document.getElementById('importv3').classList.remove('active');
 		document.getElementById('exportv3').classList.add('active');
 		window.myBar.options.title.text = 'Subaru Imports';
-		types[0][1]=true;
-		types[1][1]=false;
+		types1[0][1]=true;
+		types1[1][1]=false;
 	}else{
 		document.getElementById('exportv3').classList.remove('active');
 		document.getElementById('importv3').classList.add('active');
 		window.myBar.options.title.text = 'Subaru Exports';
-		types[0][1]=false;
-		types[1][1]=true;
+		types1[0][1]=false;
+		types1[1][1]=true;
 	}
 	window.myBar1.update();
 }

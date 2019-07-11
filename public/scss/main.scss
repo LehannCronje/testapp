@@ -245,7 +245,7 @@ button:hover{
 }
 .active{
     color:black;
-    background-color:rgb(240,248,255)!important;
+    background-color:rgba(51,122,183,0.3);
     transition:0.2s;
 }
 .graph{
@@ -273,7 +273,6 @@ button:hover{
             background-color: rgb(240,248,255);
             button{
                 border-bottom:solid 1px rgb(51,122,183);
-                background-color:rgba(51,122,183,0.3);
                 margin:0px;
                 display:block;
                 width:100%;

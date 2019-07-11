@@ -201,7 +201,7 @@ button:hover {
 
 .active {
   color: black;
-  background-color: aliceblue !important;
+  background-color: rgba(51, 122, 183, 0.3);
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s; }
@@ -228,7 +228,6 @@ button:hover {
       background-color: aliceblue; }
       .graph .graph-container .dropdown-menu button {
         border-bottom: solid 1px #337ab7;
-        background-color: rgba(51, 122, 183, 0.3);
         margin: 0px;
         display: block;
         width: 100%; }
