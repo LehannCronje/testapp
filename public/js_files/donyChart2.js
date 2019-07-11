@@ -401,118 +401,18 @@ var donuChartData2 = [
     ['2019','April',0,'Exports','Other'],
 ]
 
-var randomScalingFactor = function() {
-    return Math.round(Math.random() * 100);
-};
+
 
 var config2 = {
     type: 'doughnut',
     data: {
         datasets: [{
             data: [],
-            backgroundColor: [
-                window.chartColors.red,
-                window.chartColors.orange,
-                window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
-                window.chartColors.purple,
-                window.chartColors.grey,
-                window.chartColors.aqua,
-                window.chartColors.navy,
-                window.chartColors.indigo,
-                window.chartColors.teal,
-                window.chartColors.olive,
-            ],
+            backgroundColor: [],
             label: '2015'
         },
-        {
-            data: [],
-            backgroundColor: [
-                window.chartColors.red,
-                window.chartColors.orange,
-                window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
-                window.chartColors.purple,
-                window.chartColors.grey,
-                window.chartColors.aqua,
-                window.chartColors.navy,
-                window.chartColors.indigo,
-                window.chartColors.teal,
-                window.chartColors.olive,
-            ],
-            label: '2016'
-        },
-        {
-            data: [],
-            backgroundColor: [
-                window.chartColors.red,
-                window.chartColors.orange,
-                window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
-                window.chartColors.purple,
-                window.chartColors.grey,
-                window.chartColors.aqua,
-                window.chartColors.navy,
-                window.chartColors.indigo,
-                window.chartColors.teal,
-                window.chartColors.olive,
-            ],
-            label: '2017'
-        },
-        {
-            data: [],
-            backgroundColor: [
-                window.chartColors.red,
-                window.chartColors.orange,
-                window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
-                window.chartColors.purple,
-                window.chartColors.grey,
-                window.chartColors.aqua,
-                window.chartColors.navy,
-                window.chartColors.indigo,
-                window.chartColors.teal,
-                window.chartColors.olive,
-            ],
-            label: '2018'
-        },
-        {
-            data: [],
-            backgroundColor: [
-                window.chartColors.red,
-                window.chartColors.orange,
-                window.chartColors.yellow,
-                window.chartColors.green,
-                window.chartColors.blue,
-                window.chartColors.purple,
-                window.chartColors.grey,
-                window.chartColors.aqua,
-                window.chartColors.navy,
-                window.chartColors.indigo,
-                window.chartColors.teal,
-                window.chartColors.olive,
-            ],
-            label: '2019'
-        }
     ],
-        labels: [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
-        ]
+        labels: []
     },
     options: {
         maintainAspectRatio: true,
@@ -534,7 +434,7 @@ var config2 = {
 
 var years2 = ['2015','2016','2017','2018','2019'];
 var donutMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
+var sets3 = ['Road','Air','Other','Maritime'];
 var monthStates = [
     ['January',true],
     ['February',true],
@@ -550,90 +450,152 @@ var monthStates = [
     ['December',true],
 ];
 var states3 = [
-    ['2015',true],
-    ['2016',true],
-    ['2017',true],
+    ['2015',false],
+    ['2016',false],
+    ['2017',false],
     ['2018',true],
     ['2019',true],
 ];
-
-
-for(var j=0;j<years2.length;j++){
-    var dataImport=[];
-    for(var i=0;i<donutMonth.length;i++){
-        var total = 0;
-        for(var k=0;k<donuChartData2.length;k++){
-            if(donuChartData2[k][0]==years2[j] && donuChartData2[k][1] == donutMonth[i] && donuChartData2[k][3] == "Imports"){
+var colors3 = [
+    window.chartColors.red,
+    window.chartColors.orange,
+    window.chartColors.yellow,
+    window.chartColors.green,
+];
+var types3 = [
+    ['Imports',true],
+    ['Exports',false]
+];
+var dataImport2=[];
+for(var j=0;j<sets3.length;j++){
+    var total = 0;
+    for(var k=0;k<donuChartData2.length;k++){
+        if(donuChartData2[k][3]=='Imports' && donuChartData2[k][4]==sets3[j]){
+            if(states3[years2.indexOf(donuChartData2[k][0])][1]){
                 total = total + donuChartData2[k][2];
             }
         }
-        dataImport[i] = total;
-    };
-    config2.data.datasets[j].data = dataImport;
+    }   
+    dataImport2[j] = total;
 }
+
+arrSort2(dataImport2);
+config2.data.datasets[0].data = dataImport2;
+config2.data.labels = sets3;
+config2.data.datasets[0].backgroundColor = colors3;
 document.getElementById('donut2Exp').classList.add('active');
+document.getElementById('2015v4').classList.add('active');
+document.getElementById('2016v4').classList.add('active');
+document.getElementById('2017v4').classList.add('active');
+
+function getType3(){
+    for(i=0;i<types3.length;i++){
+        if(types2[i][1]){
+            return types2[i][0];
+        }
+    }
+}
+function arrSort2(arr){
+    for(var i=0; i<arr.length; i++){
+        for(var j=0;j<arr.length;j++){
+            if(arr[i]>arr[j]){
+                var temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                var temp1 = sets3[i];
+                sets3[i] = sets3[j];
+                sets3[j] = temp1;
+                var temp3 = colors3[i];
+                colors3[i] = colors3[j];
+                colors3[j] = temp3;
+            }
+        }
+    }
+    return arr;
+}
 
 function hideData4(par){
-	config2.data.datasets.forEach(function(ds){
-		if(ds.label == par){
-			for(var i=0;i<states3.length;i++){
-				if(states3[i][0]==par){
-					if(states3[i][1]){
-						ds.hidden = true;
-						states3[i][1] = false;
-						document.getElementById(par+'v4').classList.add('active');
-					}else{
-						ds.hidden = false;
-						states3[i][1] = true;
-						document.getElementById(par+'v4').classList.remove('active');
-					}
-				}
-			}
-		}
-	})
-	window.myDoughnut1.update();
-}
 
-function hideMonths4(par){
-
-    var index = donutMonth.indexOf(par);
-	config2.data.datasets.forEach(function(ds){
-		if(monthStates[index][1]){
-            ds._meta[3].data[index].hidden = true;
-        }else{
-            ds._meta[3].data[index].hidden = false;
-        }
-    });
-    if(monthStates[index][1]){
-        monthStates[index][1] = false;
-        document.getElementById(par).classList.add('active');
+    var index = years2.indexOf(par);
+    if(states3[index][1]){
+        states3[index][1] = false;
+        document.getElementById(par+'v4').classList.add('active');
     }else{
-        monthStates[index][1] = true;
-        document.getElementById(par).classList.remove('active');
+        states3[index][1] = true;
+        document.getElementById(par+'v4').classList.remove('active');
     }
-	window.myDoughnut1.update();
-}
-
-function donut2ToggleType(type){
-    for(var j=0;j<years2.length;j++){
-        var dataImport=[];
-        for(var i=0;i<donutMonth.length;i++){
-            var total = 0;
-            for(var k=0;k<donuChartData2.length;k++){
-                if(donuChartData2[k][0]==years2[j] && donuChartData2[k][1] == donutMonth[i] && donuChartData2[k][3] == type){
+    var dataImport=[];
+    for(var j=0;j<sets3.length;j++){
+        var total = 0;
+        for(var k=0;k<donuChartData2.length;k++){
+            if(donuChartData2[k][3]==getType3() && donuChartData2[k][4]==sets3[j]){
+                if(states3[years2.indexOf(donuChartData2[k][0])][1]){
                     total = total + donuChartData2[k][2];
                 }
             }
-            dataImport[i] = total;
-        };
-        config2.data.datasets[j].data = dataImport;
+        }   
+        dataImport[j] = total;
     }
+    arrSort(dataImport);
+    config2.data.datasets[0].data = dataImport;
+    config2.data.labels = sets3;
+    config2.data.datasets[0].backgroundColor = colors3;
+	
+	window.myDoughnut1.update();
+}
+
+// function hideMonths4(par){
+
+//     var index = donutMonth.indexOf(par);
+// 	config2.data.datasets.forEach(function(ds){
+// 		if(monthStates[index][1]){
+//             ds._meta[3].data[index].hidden = true;
+//         }else{
+//             ds._meta[3].data[index].hidden = false;
+//         }
+//     });
+//     if(monthStates[index][1]){
+//         monthStates[index][1] = false;
+//         document.getElementById(par).classList.add('active');
+//     }else{
+//         monthStates[index][1] = true;
+//         document.getElementById(par).classList.remove('active');
+//     }
+// 	window.myDoughnut1.update();
+// }
+
+function donut2ToggleType(type){
+    var dataImport=[];
+    for(var j=0;j<sets3.length;j++){
+        var total = 0;
+        for(var k=0;k<donuChartData2.length;k++){
+            if(donuChartData2[k][3]==type && donuChartData2[k][4]==sets3[j]){
+                if(states3[years2.indexOf(donuChartData2[k][0])][1]){
+                    total = total + donuChartData2[k][2];
+                }
+            }
+        }   
+        dataImport[j] = total;
+    }
+    arrSort(dataImport);
+    config2.data.datasets[0].data = dataImport;
+    config2.data.labels = sets3;
+    config2.data.datasets[0].backgroundColor = colors3;
+	
+	window.myDoughnut1.update();
+    
     if(type=='Imports'){
         document.getElementById("donut2Imp").classList.remove('active');
-		document.getElementById('donut2Exp').classList.add('active');
+        document.getElementById('donut2Exp').classList.add('active');
+        window.myDoughnut1.options.title.text = 'Chapter Summary Imports';
+        types3[0][1]= true;
+        types3[1][1]= false;
     }else{
         document.getElementById("donut2Exp").classList.remove('active');
-		document.getElementById('donut2Imp').classList.add('active');
+        document.getElementById('donut2Imp').classList.add('active');
+        window.myDoughnut1.options.title.text = 'Chapter Summary Exports';
+        types3[0][1]= false;
+        types3[1][1]= true;
     }
     window.myDoughnut1.update();
 }

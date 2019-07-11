@@ -1322,9 +1322,9 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 		};
 
 		var states = [
-			['2015',true],
-			['2016',true],
-			['2017',true],
+			['2015',false],
+			['2016',false],
+			['2017',false],
 			['2018',true],
 			['2019',true],
 		];
@@ -1333,7 +1333,7 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 			['Exports',false],
         ]
         var purposeCodeArr = [
-			['ExgeneralRebate',true,'Ex Warehouse â€“ General Rebate of Customs Duties'], //import
+			['ExgeneralRebate',false,'Ex Warehouse â€“ General Rebate of Customs Duties'], //import
             ['ExpaymentDuty',false,'Ex Warehouse â€“ Payment of Duty '], //import
             ['ExremovalBond',false,'Ex Warehouse â€“ Removal in Bond'], //import
             ['ExWarehousing',false,'Ex Warehouse â€“ Re-Warehousing '], //import
@@ -1341,7 +1341,7 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
             ['paymentDutyEx',false,'Export of imported goods ex customs and excise warehouse'], //export
             ['removalBondSA',false,'Export of South African Products (not ex customs and excise warehouse)'], //export
             ['generalDebate',false,'General Rebate of Customs Duties '], //import
-            ['exportImport',false,'Payment of Duty or Free'], //import
+            ['exportImport',true,'Payment of Duty or Free'], //import
             ['perExport',false,'Permanent Exports'], //export
             ['perImport',false,'Permanent Import'], //import
             ['reEx',false,'Re-Export (Temporary Admission)'], //export
@@ -1351,28 +1351,38 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 var years = ['2015','2016','2017','2018','2019'];
 
 		var valCat= [
-			['count',true,'Count'],
 			['exportVal',false,'Export Value'],
-			['totalDutyAmt',false,'TotalDutyAmt'],
+			['totalDutyAmt',true,'TotalDutyAmt'],
 			['vatAmt',false,'VATAmt'],
 			['importVal',false,'Import Value'],
 		];
 
 for(var i=0;i<years.length;i++){
 	var dataImport1 = [];
-	var t=0;
-
-	for(var k=0;k<DataArray1.length;k++){
-		if(DataArray1[k][1]==years[i] && DataArray1[k][0]=='Imports' && DataArray1[k][3] == 'Ex Warehouse â€“ General Rebate of Customs Duties' && DataArray1[k][5] == 'Count'){
-			dataImport1[t] = DataArray1[k][4];	
-			t++;
+	for(var j=0;j<MONTHS.length;j++){
+		var total =0;
+		for(var k=0;k<DataArray1.length;k++){
+			if(DataArray1[k][1]==years[i] && DataArray1[k][0]=='Imports' && DataArray1[k][3] == 'Payment of Duty or Free' && DataArray1[k][5] == 'TotalDutyAmt'){
+				if(DataArray1[k][2]==MONTHS[j]){
+					total = total + DataArray1[k][4];	
+				}
+			}
 		}
+		dataImport1[j] = total;
 	}
 	barChartData1.datasets[i].data = dataImport1;
 };
-document.getElementById('ExgeneralRebate').classList.add('active');
-document.getElementById('count').classList.add('active');
-document.getElementById('exportv3').classList.add('active');
+document.getElementById('exportImport').classList.add('active');
+document.getElementById('totalDutyAmt').classList.add('active');
+document.getElementById('importv3').classList.add('active');
+
+document.getElementById('2018v3').classList.add('active');
+document.getElementById('2019v3').classList.add('active');
+
+barChartData1.datasets[0].hidden=true;
+barChartData1.datasets[1].hidden=true;
+barChartData1.datasets[2].hidden=true;
+
 
 function getPurposeCode(){
 	for(var i=0; i<purposeCodeArr.length; i++){
@@ -1383,9 +1393,9 @@ function getPurposeCode(){
 }
 
 function getType(){
-    for(i=0;i<types1length;i++){
+    for(i=0;i<types1.length;i++){
         if(types1[i][1]){
-            return types[i][0];
+            return types1[i][0];
         }
     }
 }
@@ -1409,16 +1419,20 @@ function toggleCat(cat){
 		}
 	}
     for(var i=0;i<years.length;i++){
-		var dataImport = [];
-		var t=0;
-		for(var k=0;k<DataArray1.length;k++){
-			if(DataArray1[k][1]==years[i] && DataArray1[k][0]==getType() && DataArray1[k][3] == getPurposeCode() && DataArray1[k][5] == cat){
-				dataImport[t] = DataArray1[k][4];
-				t++;
+		var dataImport1 = [];
+		for(var j=0;j<MONTHS.length;j++){
+			var total =0;
+			for(var k=0;k<DataArray1.length;k++){
+				if(DataArray1[k][1]==years[i] && DataArray1[k][0]==getType() && DataArray1[k][3] == getPurposeCode() && DataArray1[k][5] == cat){
+					if(DataArray1[k][2]==MONTHS[j]){
+						total = total + DataArray1[k][4];	
+					}
+				}
 			}
+			dataImport1[j] = total;
 		}
-		barChartData1.datasets[i].data = dataImport;
-    };
+		barChartData1.datasets[i].data = dataImport1;
+	};
 	window.myBar1.update();
 }
 
@@ -1433,17 +1447,21 @@ function togglePurp(cat){
 			
 		}
 	}
-    for(var i=0;i<years.length;i++){
-		var dataImport = [];
-		var t=0;
-		for(var k=0;k<DataArray1.length;k++){
-			if(DataArray1[k][1]==years[i] && DataArray1[k][0]==getType() && DataArray1[k][3] == cat && DataArray1[k][5] == getValCat()){
-				dataImport[t] = DataArray1[k][4];
-				t++;
+	for(var i=0;i<years.length;i++){
+		var dataImport1 = [];
+		for(var j=0;j<MONTHS.length;j++){
+			var total =0;
+			for(var k=0;k<DataArray1.length;k++){
+				if(DataArray1[k][1]==years[i] && DataArray1[k][0]==getType() && DataArray1[k][3] == getPurposeCode() && DataArray1[k][5] == getValCat()){
+					if(DataArray1[k][2]==MONTHS[j]){
+						total = total + DataArray1[k][4];	
+					}
+				}
 			}
+			dataImport1[j] = total;
 		}
-		barChartData1.datasets[i].data = dataImport;
-    };
+		barChartData1.datasets[i].data = dataImport1;
+	};
 	window.myBar1.update();
 }
 
@@ -1455,11 +1473,11 @@ function hideData3(par){
 					if(states[i][1]){
 						ds.hidden = true;
 						states[i][1] = false;
-						document.getElementById(par+'v3').classList.add('active');
+						document.getElementById(par+'v3').classList.remove('active');
 					}else{
 						ds.hidden = false;
 						states[i][1] = true;
-						document.getElementById(par+'v3').classList.remove('active');
+						document.getElementById(par+'v3').classList.add('active');
 					}
 				}
 			}
@@ -1481,15 +1499,15 @@ function toggleType3(type){
 		barChartData1.datasets[i].data = dataImport;
 	};
 	if(type=='Imports'){
-		document.getElementById('importv3').classList.remove('active');
-		document.getElementById('exportv3').classList.add('active');
-		window.myBar.options.title.text = 'Subaru Imports';
+		document.getElementById('importv3').classList.add('active');
+		document.getElementById('exportv3').classList.remove('active');
+		window.myBar1.options.title.text = 'Purpose Code Imports';
 		types1[0][1]=true;
 		types1[1][1]=false;
 	}else{
-		document.getElementById('exportv3').classList.remove('active');
-		document.getElementById('importv3').classList.add('active');
-		window.myBar.options.title.text = 'Subaru Exports';
+		document.getElementById('exportv3').classList.add('active');
+		document.getElementById('importv3').classList.remove('active');
+		window.myBar1.options.title.text = 'Purpose Code Exports';
 		types1[0][1]=false;
 		types1[1][1]=true;
 	}
@@ -1517,7 +1535,7 @@ function toggleType3(type){
                     },
                     title: {
                         display: true,
-						text: 'Pro Code Summary',
+						text: 'Purpose Code Imports',
 						fontSize: 26
 					},
 					scales:{

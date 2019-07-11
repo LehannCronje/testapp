@@ -214,6 +214,9 @@ var years = ['2015','2016','2017','2018','2019'];
 barChartData.datasets[0].hidden=true;
 barChartData.datasets[1].hidden=true;
 barChartData.datasets[2].hidden=true;
+document.getElementById('2015').classList.add('active');
+document.getElementById('2016').classList.add('active');
+document.getElementById('2017').classList.add('active');
 for(var i=0;i<years.length;i++){
 	var dataImport = [];
 	var t=0;

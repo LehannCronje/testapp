@@ -521,7 +521,7 @@ var config1 = {
         },
         title: {
             display: true,
-            text: 'Chapter Summary',
+            text: 'Chapter Summary Imports',
             fontSize: 26
         },
         animation: {
@@ -624,11 +624,13 @@ function donut1ToggleType(type){
     if(type=='Imports'){
         document.getElementById("donut1Imp").classList.remove('active');
         document.getElementById('donut1Exp').classList.add('active');
+        window.myDoughnut.options.title.text = 'Chapter Summary Imports';
         types2[0][1]= true;
         types2[1][1]= false;
     }else{
         document.getElementById("donut1Exp").classList.remove('active');
         document.getElementById('donut1Imp').classList.add('active');
+        window.myDoughnut.options.title.text = 'Chapter Summary Exports';
         types2[0][1]= false;
         types2[1][1]= true;
     }
