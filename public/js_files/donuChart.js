@@ -570,10 +570,10 @@ config1.data.datasets[0].data = dataImport;
 config1.data.labels = sets;
 config1.data.datasets[0].backgroundColor = colors;
 
-document.getElementById('donut1Exp').classList.add('active');
-document.getElementById('2015v2').classList.add('active');
-document.getElementById('2016v2').classList.add('active');
-document.getElementById('2017v2').classList.add('active');
+document.getElementById('donut1Imp').classList.add('active');
+
+document.getElementById('2018v2').classList.add('active');
+document.getElementById('2019v2').classList.add('active');
 
 function getType2(){
     for(i=0;i<types2.length;i++){
@@ -622,14 +622,14 @@ function donut1ToggleType(type){
     config1.data.datasets[0].backgroundColor = colors;
     
     if(type=='Imports'){
-        document.getElementById("donut1Imp").classList.remove('active');
-        document.getElementById('donut1Exp').classList.add('active');
+        document.getElementById("donut1Imp").classList.add('active');
+        document.getElementById('donut1Exp').classList.remove('active');
         window.myDoughnut.options.title.text = 'Chapter Summary Imports';
         types2[0][1]= true;
         types2[1][1]= false;
     }else{
-        document.getElementById("donut1Exp").classList.remove('active');
-        document.getElementById('donut1Imp').classList.add('active');
+        document.getElementById("donut1Exp").classList.add('active');
+        document.getElementById('donut1Imp').classList.remove('active');
         window.myDoughnut.options.title.text = 'Chapter Summary Exports';
         types2[0][1]= false;
         types2[1][1]= true;
@@ -642,10 +642,10 @@ function hideData2(par){
     var index = years.indexOf(par);
     if(states1[index][1]){
         states1[index][1] = false;
-        document.getElementById(par+'v2').classList.add('active');
+        document.getElementById(par+'v2').classList.remove('active');
     }else{
         states1[index][1] = true;
-        document.getElementById(par+'v2').classList.remove('active');
+        document.getElementById(par+'v2').classList.add('active');
     }
     var dataImport=[];
     for(var j=0;j<sets.length;j++){

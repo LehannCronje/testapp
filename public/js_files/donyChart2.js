@@ -422,7 +422,7 @@ var config2 = {
         },
         title: {
             display: true,
-            text: 'Transport types',
+            text: 'Transport types Imports',
             fontSize: 26
         },
         animation: {
@@ -483,10 +483,10 @@ arrSort2(dataImport2);
 config2.data.datasets[0].data = dataImport2;
 config2.data.labels = sets3;
 config2.data.datasets[0].backgroundColor = colors3;
-document.getElementById('donut2Exp').classList.add('active');
-document.getElementById('2015v4').classList.add('active');
-document.getElementById('2016v4').classList.add('active');
-document.getElementById('2017v4').classList.add('active');
+document.getElementById('donut2Imp').classList.add('active');
+
+document.getElementById('2018v4').classList.add('active');
+document.getElementById('2019v4').classList.add('active');
 
 function getType3(){
     for(i=0;i<types3.length;i++){
@@ -519,10 +519,10 @@ function hideData4(par){
     var index = years2.indexOf(par);
     if(states3[index][1]){
         states3[index][1] = false;
-        document.getElementById(par+'v4').classList.add('active');
+        document.getElementById(par+'v4').classList.remove('active');
     }else{
         states3[index][1] = true;
-        document.getElementById(par+'v4').classList.remove('active');
+        document.getElementById(par+'v4').classList.add('active');
     }
     var dataImport=[];
     for(var j=0;j<sets3.length;j++){
@@ -585,14 +585,14 @@ function donut2ToggleType(type){
 	window.myDoughnut1.update();
     
     if(type=='Imports'){
-        document.getElementById("donut2Imp").classList.remove('active');
-        document.getElementById('donut2Exp').classList.add('active');
+        document.getElementById("donut2Imp").classList.add('active');
+        document.getElementById('donut2Exp').classList.remove('active');
         window.myDoughnut1.options.title.text = 'Chapter Summary Imports';
         types3[0][1]= true;
         types3[1][1]= false;
     }else{
-        document.getElementById("donut2Exp").classList.remove('active');
-        document.getElementById('donut2Imp').classList.add('active');
+        document.getElementById("donut2Exp").classList.add('active');
+        document.getElementById('donut2Imp').classList.remove('active');
         window.myDoughnut1.options.title.text = 'Chapter Summary Exports';
         types3[0][1]= false;
         types3[1][1]= true;

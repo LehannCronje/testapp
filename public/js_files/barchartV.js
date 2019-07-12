@@ -214,9 +214,9 @@ var years = ['2015','2016','2017','2018','2019'];
 barChartData.datasets[0].hidden=true;
 barChartData.datasets[1].hidden=true;
 barChartData.datasets[2].hidden=true;
-document.getElementById('2015').classList.add('active');
-document.getElementById('2016').classList.add('active');
-document.getElementById('2017').classList.add('active');
+
+document.getElementById('2018').classList.add('active');
+document.getElementById('2019').classList.add('active');
 for(var i=0;i<years.length;i++){
 	var dataImport = [];
 	var t=0;
@@ -228,7 +228,7 @@ for(var i=0;i<years.length;i++){
 	}
 	barChartData.datasets[i].data = dataImport;
 };
-document.getElementById('export').classList.add('active');
+document.getElementById('import').classList.add('active');
 
 function hideData(par){
 	barChartData.datasets.forEach(function(ds){
@@ -238,11 +238,11 @@ function hideData(par){
 					if(states2[i][1]){
 						ds.hidden = true;
 						states2[i][1] = false;
-						document.getElementById(par).classList.add('active');
+						document.getElementById(par).classList.remove('active');
 					}else{
 						ds.hidden = false;
 						states2[i][1] = true;
-						document.getElementById(par).classList.remove('active');
+						document.getElementById(par).classList.add('active');
 					}
 				}
 			}
@@ -264,12 +264,12 @@ function toggleType(type){
 		barChartData.datasets[i].data = dataImport;
 	};
 	if(type=='import'){
-		document.getElementById(type).classList.remove('active');
-		document.getElementById('export').classList.add('active');
+		document.getElementById(type).classList.add('active');
+		document.getElementById('export').classList.remove('active');
 		window.myBar.options.title.text = 'Subaru Imports';
 	}else{
-		document.getElementById(type).classList.remove('active');
-		document.getElementById('import').classList.add('active');
+		document.getElementById(type).classList.add('active');
+		document.getElementById('import').classList.remove('active');
 		window.myBar.options.title.text = 'Subaru Exports';
 	}
 	window.myBar.update();
