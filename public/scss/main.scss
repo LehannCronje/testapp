@@ -188,15 +188,26 @@ nav{
 .info-top{
     width:83%;
     margin-left:17%;
+    .row{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    }
     .data-info{
         margin-top:100px;
+        margin-left:10px;
+        margin-right:10px;
         padding:10px;
         // backgrund-color:rgba(46, 115, 245, 0.1);
         background-color: rgb(240,248,255);
-        // border-radius: 10px;
+        border-radius: 5px;
         box-shadow: 0 2px 11px 0 rgba(0,0,0,.2), 0 2px 15px 0 rgba(0,0,0,.35);
         h5{
-            font-size: 20px;
+            font-size: 13px;
+        }
+        p{
+            font-size:25px;
+            color: rgb(51,122,183);
         }
     }
     .center-pill{
